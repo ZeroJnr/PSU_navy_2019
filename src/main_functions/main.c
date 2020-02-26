@@ -13,7 +13,7 @@ int main(int ac, char **av)
 
     if (ac > 3)
         return (84);
-    else if (av[1][0] == '-' && av[1][1] == 'h') {
+    else if (ac == 2 && av[1][0] == '-' && av[1][1] == 'h') {
         helper();
         return (0);
     }
