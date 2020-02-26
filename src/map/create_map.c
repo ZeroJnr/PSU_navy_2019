@@ -9,22 +9,20 @@
 
 int create_map(game_t *game)
 {
-    int fd = 0;
-    int len = 0;
-    int size = 0;
-    char *buffer = NULL;
+    game->map.buffer = NULL;
     game->map.x_max = 17;
     game->map.y_max = 10;
 
-    if ((size = getstat("./rsc/map.txt")) <= 0)
+    if ((game->map.size = getstat("./rsc/map.txt")) <= 0)
         return (84);
-    else if (!(buffer = malloc(sizeof(char) * (size))))
+    else if (!(game->map.buffer = malloc(sizeof(char) * (game->map.size))))
         return (84);
-    if ((fd = open("./rsc/map.txt", O_RDONLY)) <= 0)
+    if ((game->map.fd = open("./rsc/map.txt", O_RDONLY)) <= 0)
         return (84);
-    else if ((len = read(fd, buffer, size)) <= 0)
+    else if ((game->map.len = read(game->map.fd,
+    game->map.buffer, game->map.size)) <= 0)
         return (84);
-    game->map.map = init_map(game, buffer, len);
+    game->map.map = init_map(game);
     display_map(game);
     return (0);
 }

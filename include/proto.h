@@ -20,11 +20,13 @@ void sig_handler(int i, siginfo_t *sig);
 
 /* main functions */
 int main(int ac, char **av);
+int navy(game_t *game, int ac, char **av);
+void helper();
 
 /* create map */
 int getstat(char const *filepath);
 int create_map(game_t *game);
-char **init_map(game_t *game, char *buffer, int len);
+char **init_map(game_t *game);
 void display_map(game_t *game);
 
 #endif

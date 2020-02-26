@@ -32,6 +32,10 @@ struct map
     char **map;
     int x_max;
     int y_max;
+    int fd;
+    int size;
+    int len;
+    char *buffer;
 };
 
 struct game

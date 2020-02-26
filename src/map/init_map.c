@@ -7,7 +7,7 @@
 
 #include "proto.h"
 
-char **init_map(game_t *game, char *buffer, int len)
+char **init_map(game_t *game)
 {
     int x = 0;
     int y = 0;
@@ -15,12 +15,12 @@ char **init_map(game_t *game, char *buffer, int len)
 
     for (int i = 0; i < game->map.y_max; i++)
         game->map.map[i] = malloc(sizeof(char) * (game->map.x_max));
-    for (int i = 0; i != len; i++) {
-        if (buffer[i] == '\n') {
+    for (int i = 0; i != game->map.len; i++) {
+        if (game->map.buffer[i] == '\n') {
             y++;
             x = 0;
         } else {
-            game->map.map[y][x] = buffer[i];
+            game->map.map[y][x] = game->map.buffer[i];
             x++;
         }
     }

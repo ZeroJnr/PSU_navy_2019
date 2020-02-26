@@ -39,15 +39,18 @@ SRC_DIR = ./src/
 SRC_COM = ./src/comm/
 SRC_MAP = ./src/map/
 SRC_GAME = ./src/gameplay/
+SRC_MAIN = ./src/main_functions/
 
 TEST = tests/tests.c	\
 
 SRC	=	$(SRC_MAP)create_map.c	\
 		$(SRC_MAP)getstat.c	\
 		$(SRC_MAP)init_map.c	\
-		$(SRC_MAP)display_map.c
+		$(SRC_MAP)display_map.c	\
+		$(SRC_MAIN)navy.c	\
+		$(SRC_MAIN)helper.c
 
-SRC_BUILD	=	$(SRC) $(SRC_DIR)main.c
+SRC_BUILD	=	$(SRC) $(SRC_MAIN)main.c
 
 NAME = navy
 
@@ -92,15 +95,11 @@ debug: re
 	@$(LINE_RETURN)
 
 clean:
+	@rm -f $(OBJ)
 	@rm -f $(LIB_DIR)*.a
-	@rm -f $(LIB_DIR)*.o
 	@rm -f $(SRC_DIR)*.gc*
-	@rm -f $(SRC_DIR)*.o
-	@rm -f $(SRC_COM)*.o
 	@rm -f $(SRC_COM)*.gc*
-	@rm -f $(SRC_GAME)*.o
 	@rm -f $(SRC_GAME)*.gc*
-	@rm -f $(SRC_MAP)*.o
 	@rm -f $(SRC_MAP)*.gc*
 
 	@$(LINE_RETURN)
