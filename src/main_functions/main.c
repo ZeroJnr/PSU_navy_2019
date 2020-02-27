@@ -17,7 +17,6 @@ int main(int ac, char **av)
         helper();
         return (0);
     }
-    rbknavùnrk
     if (navy(&game, ac, av) == 84)
         return (84);
     return (0);
