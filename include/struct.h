@@ -25,6 +25,8 @@ typedef struct map map_t;
 struct user
 {
     int pid_ennemy;
+    char *pos1;
+    char *pos2;
 };
 
 struct map

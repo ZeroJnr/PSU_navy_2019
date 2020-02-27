@@ -15,10 +15,13 @@ void my_free(game_t *game)
 
 int navy(game_t *game, int ac, char **av)
 {
-    if (ac == 1)
+    if (ac == 2) {
+        game->user.pos1 = av[1];
         user1(game);
-    else if (ac == 2)
+    } else if (ac == 3) {
+        game->user.pos2 = av[2];
         user2(game, av[1]);
+    }
     if (create_map(game) == 84) {
         my_free(game);
         close(game->map.fd);

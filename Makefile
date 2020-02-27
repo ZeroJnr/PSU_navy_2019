@@ -48,7 +48,8 @@ SRC	=	$(SRC_MAP)create_map.c	\
 		$(SRC_MAP)init_map.c	\
 		$(SRC_MAP)display_map.c	\
 		$(SRC_MAIN)navy.c	\
-		$(SRC_MAIN)helper.c
+		$(SRC_MAIN)helper.c	\
+		$(SRC_COM)connect.c
 
 SRC_BUILD	=	$(SRC) $(SRC_MAIN)main.c
 
@@ -101,6 +102,7 @@ clean:
 	@rm -f $(SRC_COM)*.gc*
 	@rm -f $(SRC_GAME)*.gc*
 	@rm -f $(SRC_MAP)*.gc*
+	@rm -f $(LIB_DIR)*.o
 
 	@$(LINE_RETURN)
 	@$(ECHO) $(DIM_T)$(COLOR_THEME)" _____   _       _____       ___   __   _  "$(DEFAULT)
