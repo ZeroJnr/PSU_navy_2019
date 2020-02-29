@@ -1,5 +1,8 @@
 *.o
 *.gc*
-NormeEZ.rb
+NormEZ.rb
 ./navy
 *.txt
+pos1
+pos2
+navy

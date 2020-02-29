@@ -41,6 +41,7 @@ SRC_MAP = ./src/map/
 SRC_GAME = ./src/gameplay/
 SRC_MAIN = ./src/main_functions/
 SRC_CHECK = ./src/checking/
+SRC_POS = ./src/map/pos/
 
 TEST = tests/tests.c	\
 
@@ -50,8 +51,13 @@ SRC	=	$(SRC_MAP)create_map.c	\
 		$(SRC_MAP)display_map.c	\
 		$(SRC_MAIN)navy.c	\
 		$(SRC_MAIN)helper.c	\
+		$(SRC_MAIN)free.c	\
 		$(SRC_CHECK)checking.c	\
-		$(SRC_COM)connect.c
+		$(SRC_CHECK)checking_format.c	\
+		$(SRC_POS)create_map_pos.c	\
+		$(SRC_POS)init_map_pos.c	\
+		$(SRC_COM)user1.c	\
+		$(SRC_COM)user2.c	\
 
 SRC_BUILD	=	$(SRC) $(SRC_MAIN)main.c
 

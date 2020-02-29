@@ -1,0 +1,19 @@
+/*
+** EPITECH PROJECT, 2020
+** user2
+** File description:
+** connection with user2 and user1 and sig_handler
+*/
+
+#include "proto.h"
+
+int user2(game_t *game, char *pid1)
+{
+    game->user.pid_ennemy = to_number(pid1);
+    my_putstr("my_pid:\t");
+    my_putstr(show_number(getpid()));
+    my_putchar('\n');
+    kill(game->user.pid_ennemy, SIGUSR2);
+    my_putstr("\nsuccesfully connected\n\n");
+    return (0);
+}

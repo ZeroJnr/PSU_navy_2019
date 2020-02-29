@@ -2,50 +2,35 @@
 ** EPITECH PROJECT, 2020
 ** checking
 ** File description:
-** checking
+** checking posiiton map
 */
 
 #include "proto.h"
 
-static bool check_my_point(game_t *game)
+static bool checking_letter_two(game_t *game, int x, int y)
 {
-    int x = 1;
-    int x_sec = 4;
-
-    for (int y = 0; y < game->map.y_max_pos; y++) {
-        if (game->map.map_pos[y][x] != ':') {
-            printf("deux point place 2\n");
-            game->user.check = true;
-        }
+    if (CURSOR(y, x) >= 'A' && CURSOR(y, x) <= 'Z') {
+        if (CURSOR(y, x) > 'H')
+            CHECK = true;
     }
-    for (int y = 0; y < game->map.y_max_pos; y++) {
-        if (game->map.map_pos[y][x_sec] != ':') {
-            printf("deux points place 5\n");
-            game->user.check = true;
-        }
-    }
-    return (game->user.check);
+    else if (CURSOR(y, x) >= '0' && CURSOR(y, x) <= '9')
+        if (CURSOR(y, x) > '8' || CURSOR(y, x) < '1')
+            CHECK = true;
+    return (CHECK);
 }
 
 bool checking_letter(game_t *game)
 {
     int x = 0;
     int y = 0;
+    bool check_two = false;
 
-    if (check_my_point(game) == true)
-        game->user.check = true;
+    if (check_my_formater(game) == true)
+        CHECK = true;
     for (y = 0; y < game->map.y_max_pos; y++) {
-        for (x = 0; x < game->map.x_max_pos; x++) {
-            if (game->map.map_pos[y][x] >= 'A' && game->map.map_pos[y][x] <= 'Z') {
-                if (game->map.map_pos[y][x] > 'H') {
-                    printf("if 1\n");
-                    game->user.check = true;
-                }
-            }
-            else if (game->map.map_pos[y][x] >= '0' && game->map.map_pos[y][x] <= '9')
-                if (game->map.map_pos[y][x] > '8' || game->map.map_pos[y][x] < '1')
-                    game->user.check = true;
-            }
-        }
-    return (game->user.check);
+        for (x = 0; x < game->map.x_max_pos; x++)
+            if ((check_two = checking_letter_two(game, x, y)) == true)
+                CHECK = true;
+    }
+    return (CHECK);
 }

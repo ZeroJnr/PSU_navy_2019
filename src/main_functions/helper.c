@@ -7,7 +7,7 @@
 
 #include "proto.h"
 
-void helper()
+void helper(void)
 {
     my_putstr("USAGE\n");
     my_putstr("    ./navy [first_player_pid] navy_positions\n");
