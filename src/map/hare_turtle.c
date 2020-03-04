@@ -51,14 +51,14 @@ char **turtle_hare_x(game_t *game)
     int x = 2;
     int y = 2;
 
-    for (x = 2; x <= game->map.x_max; x++) {
+    for (x = 2; x < game->map.x_max; x++) {
+        if (y == game->map.y_max)
+            break;
         if (game->map.map[y][x] > '2' && game->map.map[y][x] <= '5') {
             nb = game->map.map[y][x];
             x = test(game, x, nb, y);
         }
-        if (y == game->map.y_max)
-            break;
-        if (x == game->map.x_max) {
+        if (x == game->map.x_max - 1) {
             y += 1;
             x = 1;
         }

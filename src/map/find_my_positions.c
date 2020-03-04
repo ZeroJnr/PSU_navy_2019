@@ -26,19 +26,35 @@ int find_my_position(game_t *game)
     int nb = 2;
     int i = 0;
     int j = 0;
+    int k = 0;
+    int a = 0;
 
     for (int y = 0; y < Y_MAX; y++) {
-        for (int x = 0; x < X_MAX; x++) {
+        for (int x = 0; x < 3; x++) {
             if (game->map.map_pos[y][x] == ':') {
                 ++x;
                 i = checking_board(game, x, y, i);
-                j= game->map.map_pos[y][x + 1] - '0';
-                game->map.map[j + 1][i] = nb + '0';
+                a = checking_board(game, 5, y, i);
+                j = game->map.map_pos[y][x + 1] - '0';
+                k = game->map.map_pos[y][6] - '0';
+                if (j == game->map.map_pos[y][6] - '0') {
+                    game->map.map[j + 1][i] = nb + '0';
+                    while (i <= a) {
+                        game->map.map[j + 1][i] = nb + '0';
+                        i += 2;
+                    }
+                }
+                else {
+                    game->map.map[j + 1][i] = nb + '0';
+                    while (j <= k) {
+                        game->map.map[j + 1][i] = nb + '0';
+                        j++;
+                    }
+                }
             }
         }
         ++nb;
     }
-    turtle_hare_x(game);
     display_map_sec(game);
     return (0);
 }
