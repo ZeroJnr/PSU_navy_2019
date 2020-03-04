@@ -11,10 +11,12 @@ int navy(game_t *game, int ac, char **av)
 {
     if (ac == 2) {
         game->user.pos1 = av[1];
-        user1(game);
+        if (user1(game) == 84)
+          return (84);
     } else if (ac == 3) {
         game->user.pos2 = av[2];
-        user2(game, av[1]);
+        if (user2(game, av[1]) == 84)
+          return (84);
     }
     if (create_map(game) == 84) {
         my_free(game);

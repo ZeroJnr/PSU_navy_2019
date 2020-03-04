@@ -38,7 +38,7 @@ int find_my_position(game_t *game)
         }
         ++nb;
     }
-    game->map.map = turtle_hare_x(game);
+    turtle_hare_x(game);
     display_map_sec(game);
     return (0);
 }

@@ -23,8 +23,8 @@ static bool first_check(game_t *game)
         }
         if (check == true)
             break;
+        }
     }
-}
     for (int y = 0 ;y < game->map.y_max; y++) {
         for (int x = 0; x < game->map.x_max; x++) {
             if (game->map.map[y][x] == count)
@@ -36,21 +36,31 @@ static bool first_check(game_t *game)
     return (final_check);
 }
 
+int test(game_t *game, int x, char nb, int y)
+{
+    while (x < nb - '0') {
+        game->map.map[y][x] = nb;
+        ++x;
+    }
+    return (x);
+}
+
 char **turtle_hare_x(game_t *game)
 {
     char nb;
+    int x = 2;
+    int y = 2;
 
-    for (int y = 2; y < game->map.y_max; y++) {
-        for (int x = 2; x < game->map.x_max; x++) {
-            if (game->map.map[y][x] >= '1' && game->map.map[y][x] <= '9') {
-                nb = game->map.map[y][x];
-                x++;
-                while (game->map.map[y][x] != nb) {
-                    game->map.map[y][x] = nb;
-                    if (game->map.map[y][x] == game->map.x_max)
-                        break;
-                }
-            }
+    for (x = 2; x <= game->map.x_max; x++) {
+        if (game->map.map[y][x] > '2' && game->map.map[y][x] <= '5') {
+            nb = game->map.map[y][x];
+            x = test(game, x, nb, y);
+        }
+        if (y == game->map.y_max)
+            break;
+        if (x == game->map.x_max) {
+            y += 1;
+            x = 1;
         }
     }
     return (game->map.map);
