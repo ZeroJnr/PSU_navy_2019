@@ -50,6 +50,7 @@ bool find_my_position(game_t *game)
                         printf("count1 = %d\n map_pos = %c\n", count1, game->map.map_pos[y][0]);
                         check = true;
                     }
+                    count1 = 0;
                 }
                 else { // vertical
                     game->map.map[j + 1][i] = nb + '0';
@@ -62,6 +63,7 @@ bool find_my_position(game_t *game)
                         printf("count2 = %d\n map_pos2 = %c\n", count2, game->map.map_pos[y][0]);
                         check = true;
                     }
+                    count2 = 0;
                 }
             }
         }

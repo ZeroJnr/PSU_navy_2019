@@ -27,7 +27,7 @@ int user2(game_t *game, char *pid1)
         close(game->map.fd_pos);
         return (84);
     }
-    if ((check = find_my_position(game)) == false)
+    if ((check = find_my_position(game)) == true)
         return (84);
     return (0);
 }
