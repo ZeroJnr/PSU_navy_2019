@@ -12,8 +12,7 @@ static bool checking_letter_two(game_t *game, int x, int y)
     if (CURSOR(y, x) >= 'A' && CURSOR(y, x) <= 'Z') {
         if (CURSOR(y, x) > 'H')
             CHECK = true;
-    }
-    else if (CURSOR(y, x) >= '0' && CURSOR(y, x) <= '9')
+    } else if (CURSOR(y, x) >= '0' && CURSOR(y, x) <= '9')
         if (CURSOR(y, x) > '8' || CURSOR(y, x) < '1')
             CHECK = true;
     return (CHECK);

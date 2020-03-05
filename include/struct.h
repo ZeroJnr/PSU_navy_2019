@@ -21,6 +21,7 @@
 typedef struct user user_t;
 typedef struct game game_t;
 typedef struct map map_t;
+typedef struct pos pos_t;
 
 struct user
 {
@@ -30,6 +31,18 @@ struct user
     bool check;
     int count;
     int nb;
+};
+
+struct pos
+{
+    int nb;
+    int i;
+    int j;
+    int k;
+    int a;
+    int count1;
+    int count2;
+    int check;
 };
 
 struct map
@@ -54,6 +67,7 @@ struct game
 {
     user_t user;
     map_t map;
+    pos_t pos;
 };
 
 #endif

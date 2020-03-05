@@ -42,13 +42,14 @@ SRC_GAME = ./src/gameplay/
 SRC_MAIN = ./src/main_functions/
 SRC_CHECK = ./src/checking/
 SRC_POS = ./src/map/pos/
+SRC_ORIGIN = ./src/map/origin/
 
 TEST = tests/tests.c	\
 
-SRC	=	$(SRC_MAP)create_map.c	\
-		$(SRC_MAP)getstat.c	\
-		$(SRC_MAP)init_map.c	\
-		$(SRC_MAP)display_map.c	\
+SRC	=	$(SRC_ORIGIN)create_map.c	\
+		$(SRC_ORIGIN)getstat.c	\
+		$(SRC_ORIGIN)init_map.c	\
+		$(SRC_ORIGIN)display_map.c	\
 		$(SRC_MAIN)navy.c	\
 		$(SRC_MAIN)helper.c	\
 		$(SRC_MAIN)free.c	\
@@ -58,9 +59,11 @@ SRC	=	$(SRC_MAP)create_map.c	\
 		$(SRC_POS)init_map_pos.c	\
 		$(SRC_COM)user1.c	\
 		$(SRC_COM)user2.c	\
-		$(SRC_MAP)find_my_positions.c	\
-		$(SRC_MAP)hare_turtle.c	\
-		$(SRC_MAP)checking_board.c
+		$(SRC_POS)find_my_positions.c	\
+		$(SRC_POS)checking_board.c	\
+		$(SRC_POS)axes.c	\
+		$(SRC_POS)display_map_sec.c	\
+		$(SRC_POS)basics_actions.c	\
 
 SRC_BUILD	=	$(SRC) $(SRC_MAIN)main.c
 

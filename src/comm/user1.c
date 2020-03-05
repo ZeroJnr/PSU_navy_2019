@@ -15,7 +15,7 @@ void sig_handler(int i, siginfo_t *sig, void *test)
     glob = false;
 }
 
-int user1(game_t *game)
+static int prepare_my_user1(game_t *game)
 {
     bool check = false;
     glob = true;
@@ -33,6 +33,15 @@ int user1(game_t *game)
         close(game->map.fd);
         return (84);
     }
+    return (0);
+}
+
+int user1(game_t *game)
+{
+    int user1 = 0;
+
+    if ((user1 = prepare_my_user1(game)) == 84)
+        return (84);
     if (create_map_pos(game, game->user.pos1) == 84) {
         close(game->map.fd_pos);
         return (84);

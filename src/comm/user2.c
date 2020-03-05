@@ -7,10 +7,8 @@
 
 #include "proto.h"
 
-int user2(game_t *game, char *pid1)
+static int prepare_my_user2(game_t *game, char *pid1)
 {
-    bool check = false;
-
     game->user.pid_ennemy = to_number(pid1);
     my_putstr("my_pid:\t");
     my_putstr(show_number(getpid()));
@@ -18,6 +16,16 @@ int user2(game_t *game, char *pid1)
     if (kill(game->user.pid_ennemy, SIGUSR2) == -1)
         return (84);
     my_putstr("succesfully connected\n\n");
+    return (0);
+}
+
+int user2(game_t *game, char *pid1)
+{
+    int user2 = 0;
+    bool check = false;
+
+    if ((user2 = prepare_my_user2(game, pid1)) == 84)
+        return (84);
     if (create_map(game) == 84) {
         my_free(game);
         close(game->map.fd);

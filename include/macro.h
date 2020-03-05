@@ -16,9 +16,19 @@
 #define LETTER(i) (i >= 'A' && i <= 'Z')
 #define NUMBER(i) (i >= '1' && i <= '9')
 
+
+// define positions structure
+
+#define J game->pos.j
+#define I game->pos.i
+#define A game->pos.a
+#define K game->pos.k
+#define NB game->pos.nb
+#define COUNT1 game->pos.count1
+#define COUNT2 game->pos.count2
+
 /* define letter for build map */
 
-#define A 2
 #define B 3
 #define C 4
 #define D 5

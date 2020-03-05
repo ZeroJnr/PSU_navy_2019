@@ -13,14 +13,12 @@ static bool check_my_point(game_t *game)
     int x_sec = 4;
 
     for (int y = 0; y < game->map.y_max_pos - 1; y++) {
-        if (CURSOR(y, x) != ':') {
+        if (CURSOR(y, x) != ':')
             CHECK = true;
-        }
     }
     for (int y = 0; y < game->map.y_max_pos - 1; y++) {
-        if (game->map.map_pos[y][x_sec] != ':') {
+        if (game->map.map_pos[y][x_sec] != ':')
             CHECK = true;
-        }
     }
     return (CHECK);
 }
