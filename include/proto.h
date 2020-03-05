@@ -54,5 +54,6 @@ bool y_axes(game_t *game, int y, bool check);
 int check_my_buffer(game_t *game, char *buffer);
 int main_game(game_t *game);
 int signal_checking(game_t *game, char buffer, char buffer_sec);
+int receive_signal(game_t *game);
 
 #endif

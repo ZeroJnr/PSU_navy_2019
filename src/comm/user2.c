@@ -40,5 +40,6 @@ int user2(game_t *game, char *pid1)
     display_map(game);
     my_putstr("\nwaiting for ennemy's attack...\n");
     pause();
+    receive_signal(game);
     return (0);
 }
