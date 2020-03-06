@@ -7,7 +7,7 @@
 
 #include "proto.h"
 
-int check_my_buffer(game_t *game, char *buffer)
+int check_my_buffer(char *buffer)
 {
     int lenght = 0;
 

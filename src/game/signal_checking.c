@@ -36,16 +36,18 @@ int signal_checking(game_t *game, char buffer, char buffer_sec)
     crypt = before_check(buffer, crypt);
     crypt_sec = buffer_sec - '0';
 
+    usleep(10000);
     while (lines < crypt) { // horizontal
         kill(game->user.pid_user2, SIGUSR1);
         lines++;
-        usleep(5000);
+        usleep(10000);
     }
     kill(game->user.pid_user2, SIGUSR2); // separation
+    usleep(10000);
     while (colms < crypt_sec) { // vertical
         kill(game->user.pid_user2, SIGUSR1);
         colms++;
-        usleep(5000);
+        usleep(10000);
     }
     kill(game->user.pid_user2, SIGUSR2); // final
     return (0);

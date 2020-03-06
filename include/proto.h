@@ -51,9 +51,10 @@ bool x_axes(game_t *game, int y, bool check);
 bool y_axes(game_t *game, int y, bool check);
 
 // game
-int check_my_buffer(game_t *game, char *buffer);
+int check_my_buffer(char *buffer);
 int main_game(game_t *game);
 int signal_checking(game_t *game, char buffer, char buffer_sec);
 int receive_signal(game_t *game);
+void map_assignment(game_t *game);
 
 #endif

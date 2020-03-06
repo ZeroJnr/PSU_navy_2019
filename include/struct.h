@@ -22,6 +22,13 @@ typedef struct user user_t;
 typedef struct game game_t;
 typedef struct map map_t;
 typedef struct pos pos_t;
+typedef struct coord coord_t;
+
+struct coord
+{
+    int lines;
+    int cols;
+};
 
 struct user
 {
@@ -69,6 +76,7 @@ struct game
     user_t user;
     map_t map;
     pos_t pos;
+    coord_t coord;
 };
 
 #endif

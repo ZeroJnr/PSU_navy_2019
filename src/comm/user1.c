@@ -17,10 +17,8 @@ void sig_handler(int i, siginfo_t *sig, void *test)
 
 static int prepare_my_user1(game_t *game)
 {
-    bool check = false;
-
     struct sigaction signal;
-    signal.sa_handler = &sig_handler;
+    signal.sa_sigaction = &sig_handler;
     signal.sa_flags = SA_SIGINFO;
     my_putstr("my_pid:\t");
     my_putstr(show_number(getpid()));

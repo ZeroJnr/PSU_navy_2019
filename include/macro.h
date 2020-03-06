@@ -35,4 +35,9 @@
 #define F 7
 #define H 8
 
+// COORD
+
+#define LINES game->coord.lines
+#define COLS game->coord.cols
+
 #endif

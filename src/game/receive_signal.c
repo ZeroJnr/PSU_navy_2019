@@ -7,34 +7,42 @@
 
 #include "proto.h"
 
-void sig_handler_sec(int i, siginfo_t *sig, void *test)
+void sig_handler_sec(int signal, siginfo_t *sig, void *test)
 {
-    global++;
+    (void)test;
+    (void)sig;
+    static int count = 0;
+    static int sec = 0;
+
+    if (signal == 10) {
+        count ++;
+    }
+    else if (signal == 12) {
+        sec++;
+        global = count;
+        if (sec == 2)
+            global = count;
+        count = 0;
+    }
 }
 
 int receive_signal(game_t *game)
 {
-    int lines = 0;
-    int cols = 0;
-    int count2 = 0;
-    int recept = 0;
-    global = 0;
-
     struct sigaction signal;
-    printf("ok");
-    while ((recept = pause()) != SIGUSR2) {
-        printf("recept = %d", recept);
-        signal.sa_handler = &sig_handler_sec;
-        sigaction(10, &signal, NULL);
-        signal.sa_flags = SA_SIGINFO;
+    signal.sa_sigaction = &sig_handler_sec;
+    signal.sa_flags = SA_SIGINFO;
+    sigaction(10, &signal, NULL);
+    signal.sa_sigaction = &sig_handler_sec;
+    signal.sa_flags = SA_SIGINFO;
+    sigaction(12, &signal, NULL);
+    while (global == 0) {
+        pause();
+        game->coord.lines = global;
     }
-    lines = global;
-    if (recept == SIGUSR2) {
-        global = 0;
-        count2++;
-        signal.sa_handler = &sig_handler_sec;
+    global = 0;
+    while (global == 0) {
+        pause();
+        game->coord.cols = global + 1;
     }
-    cols = global;
-    printf("lines = %d, cols %d", lines, cols);
     return (0);
 }

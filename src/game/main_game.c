@@ -19,11 +19,12 @@ int main_game(game_t *game)
         my_putstr("attack:\t");
         if ((get_rd = getline(&buffer, &n, stdin)) <= 0)
             return (84);
-        if ((check_buffer = check_my_buffer(game, buffer)) != 84)
+        if ((check_buffer = check_my_buffer(buffer)) != 84)
             condition = true;
         else
             my_putstr("wrong position\n");
         signal_checking(game, buffer[0], buffer[1]);
     }
+    map_assignment(game);
     return (0);
 }
