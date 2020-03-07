@@ -1,8 +1,8 @@
 /*
 ** EPITECH PROJECT, 2020
-** checking
+** check_letter.c
 ** File description:
-** checking posiiton map
+** check_letter
 */
 
 #include "proto.h"

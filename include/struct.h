@@ -2,11 +2,11 @@
 ** EPITECH PROJECT, 2020
 ** struct.h
 ** File description:
-** struct
+** struct navy
 */
 
-#ifndef STRUCT_NAVY
-#define STRUCT_NAVY
+#ifndef STRUCT_H
+#define STRUCT_H
 
 #include <unistd.h>
 #include <stdlib.h>
@@ -18,40 +18,21 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 
-typedef struct user user_t;
 typedef struct game game_t;
+typedef struct user user_t;
 typedef struct map map_t;
 typedef struct pos pos_t;
 typedef struct coord coord_t;
 
-struct coord
-{
-    int lines;
-    int cols;
-};
-
 struct user
 {
     int pid_ennemy;
-    int pid_user2;
     int pid_user1;
-    char *pos1;
-    char *pos2;
+    int pid_user2;
+    char *pos;
     bool check;
     int count;
     int nb;
-};
-
-struct pos
-{
-    int nb;
-    int i;
-    int j;
-    int k;
-    int a;
-    int count1;
-    int count2;
-    int check;
 };
 
 struct map
@@ -70,6 +51,24 @@ struct map
     int len_pos;
     char *buffer;
     char *buffer_pos;
+};
+
+struct pos
+{
+    int nb;
+    int i;
+    int j;
+    int k;
+    int a;
+    int count1;
+    int count2;
+    int check;
+};
+
+struct coord
+{
+    int lines;
+    int cols;
 };
 
 struct game

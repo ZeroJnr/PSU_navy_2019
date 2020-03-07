@@ -1,8 +1,8 @@
 /*
 ** EPITECH PROJECT, 2020
-** PSU_navy_2019
+** display_map_sec.c
 ** File description:
-** display second map
+** display_map_sec
 */
 
 #include "proto.h"

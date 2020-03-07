@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2020
 ** display_map.c
 ** File description:
-** display_map
+** display_map.c
 */
 
 #include "proto.h"

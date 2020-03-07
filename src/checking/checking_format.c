@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2020
 ** checking_format.c
 ** File description:
-** check the style of pos script
+** checking format
 */
 
 #include "proto.h"

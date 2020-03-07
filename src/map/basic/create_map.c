@@ -19,8 +19,8 @@ int create_map(game_t *game)
         return (84);
     if ((game->map.fd = open("./rsc/map.txt", O_RDONLY)) <= 0)
         return (84);
-    else if ((game->map.len = read(game->map.fd,
-    game->map.buffer, game->map.size)) <= 0)
+    else if ((game->map.len = read(game->map.fd, game->map.buffer,
+    game->map.size)) <= 0)
         return (84);
     game->map.map = init_map(game);
     return (0);

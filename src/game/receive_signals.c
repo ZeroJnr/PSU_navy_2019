@@ -1,8 +1,8 @@
 /*
 ** EPITECH PROJECT, 2020
-** PSU_navy_2019
+** receive_signals.c
 ** File description:
-** receive signal
+** receive_signals
 */
 
 #include "proto.h"
@@ -14,9 +14,8 @@ void sig_handler_sec(int signal, siginfo_t *sig, void *test)
     static int count = 0;
     static int sec = 0;
 
-    if (signal == 10) {
+    if (signal == 10)
         count ++;
-    }
     else if (signal == 12) {
         sec++;
         global = count;
@@ -30,10 +29,10 @@ int receive_signal(game_t *game)
 {
     struct sigaction signal;
     signal.sa_sigaction = &sig_handler_sec;
-    signal.sa_flags = SA_SIGINFO;
+    signal.sa_flags = SA_RESTART;
     sigaction(10, &signal, NULL);
     signal.sa_sigaction = &sig_handler_sec;
-    signal.sa_flags = SA_SIGINFO;
+    signal.sa_flags = SA_RESTART;
     sigaction(12, &signal, NULL);
     while (global == 0) {
         pause();

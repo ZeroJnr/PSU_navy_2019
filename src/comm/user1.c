@@ -37,8 +37,11 @@ static int test_usr1(game_t *game)
 {
     if (main_game(game) == 84)
         return (84);
+    printf("%d\n", game->user.pid_user2);
     printf("waiting for ennemy's attack\n");
     receive_signal(game);
+    display_map(game);
+    return (0);
 }
 
 int user1(game_t *game)

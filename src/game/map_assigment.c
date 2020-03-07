@@ -1,16 +1,14 @@
 /*
 ** EPITECH PROJECT, 2020
-** PSU_navy_2019
+** map_assigment.c
 ** File description:
-** assignment_map
+** map_assigment
 */
 
 #include "proto.h"
 
 void map_assignment(game_t *game)
 {
-    if (game->map.map[COLS][LINES] >= '2' && game->map.map[COLS][LINES] <= '5') {
+    if (game->map.map[COLS][LINES] >= 2 && game->map.map[COLS][LINES] <= '5')
         game->map.map[COLS][LINES] = 'x';
-    }
-    //display_map(game);
 }

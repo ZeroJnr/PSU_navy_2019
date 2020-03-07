@@ -21,6 +21,8 @@ int checking_board(game_t *game, int x, int y, int i)
         i = 10;
     if (CURSOR(y, x) == 'F')
         i = 12;
+    if (CURSOR(y, x) == 'G')
+        i = 14;
     if (CURSOR(y, x) == 'H')
         i = 16;
     return (i);

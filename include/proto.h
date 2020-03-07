@@ -1,12 +1,12 @@
 /*
 ** EPITECH PROJECT, 2020
-** proto
+** proto.h
 ** File description:
-** proto
+** proto navy
 */
 
-#ifndef PROTO_NAVY
-#define PROTO_NAVY
+#ifndef PROTO_H
+#define PROTO_H
 
 #include "struct.h"
 #include "proto_lib.h"
@@ -14,49 +14,44 @@
 
 extern int global;
 
-/* user signal */
-int user1(game_t *game);
-int user2(game_t *game, char *pid1);
-
-/* signal_handling */
-void sig_handler(int i, siginfo_t *sig, void *test);
-
-/* main functions */
+    //main functions//
 int main(int ac, char **av);
-int navy(game_t *game, int ac, char **av);
-void helper();
-
-/* origin map game */
-int getstat(char const *filepath);
-int create_map(game_t *game);
-char **init_map(game_t *game);
-bool display_map(game_t *game);
-bool find_my_position(game_t *game);
-
-/* map pos */
-int create_map_pos(game_t *game, char *map_pos);
-char **init_map_pos(game_t *game);
-int checking_board(game_t *game, int x, int y, int i);
-int basics_actions(game_t *game, char *map_pos);
-void display_map_sec(game_t *game);
-
-/* error_handling */
-bool check_my_formater(game_t *game);
-bool checking_letter(game_t *game);
+void helper(void);
 void my_free_pos(game_t *game);
 void my_free(game_t *game);
+int navy(game_t *game, int ac, char **av);
 
-// axes positions
+    //connection functions//
+int user1(game_t *game);
+int prepare_my_user1(game_t *game);
+void sig_handler(int i, siginfo_t *sig, void *test);
+int prepare_my_user2(game_t *game, char *pid1);
+int user2(game_t *game, char *pid1);
+
+    //map proto//
+int getstat(char const *filepath);
+char **init_map(game_t *game);
+int create_map(game_t *game);
+int create_map_pos(game_t *game, char *map_pos);
+bool find_my_position(game_t *game);
 bool x_axes(game_t *game, int y, bool check);
 bool y_axes(game_t *game, int y, bool check);
+bool display_map(game_t *game);
+void display_map_sec(game_t *game);
 
-// game
-int check_my_buffer(char *buffer);
-int main_game(game_t *game);
+    //checking//
+bool checking_letter(game_t *game);
+bool check_my_formater(game_t *game);
 int signal_checking(game_t *game, char buffer, char buffer_sec);
-int receive_signal(game_t *game);
-void map_assignment(game_t *game);
-int signal_checking_sec(game_t *game, char buffer, char buffer_sec);
+int check_my_buffer(char *buffer);
 int main_game_sec(game_t *game);
+int main_game(game_t *game);
+int signal_checking_sec(game_t *game, char buffer, char buffer_sec);
+int before_check_sec(char buffer, int i);
+
+    //assignment//
+void map_assignment(game_t *game);
+int receive_signal(game_t *game);
+void sig_handler_sec(int signal, siginfo_t *sig, void *test);
 
 #endif

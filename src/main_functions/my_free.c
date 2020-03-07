@@ -1,8 +1,8 @@
 /*
 ** EPITECH PROJECT, 2020
-** free
+** my_free.c
 ** File description:
-** fucntion to fre our array
+** free navy
 */
 
 #include "proto.h"

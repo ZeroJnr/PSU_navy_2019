@@ -1,8 +1,8 @@
 /*
 ** EPITECH PROJECT, 2020
-** getstats.c
+** getstat.c
 ** File description:
-** getstat
+** getstats
 */
 
 #include "proto.h"

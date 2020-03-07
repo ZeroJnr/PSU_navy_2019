@@ -1,8 +1,8 @@
 /*
 ** EPITECH PROJECT, 2020
-** PSU_navy_2019
+** signals_checking.c
 ** File description:
-** signal check and description
+** signals_checking
 */
 
 #include "proto.h"
@@ -39,18 +39,18 @@ int signal_checking(game_t *game, char buffer, char buffer_sec)
     crypt_sec = buffer_sec - '0';
 
     usleep(10000);
-    while (lines < crypt) { // horizontal
+    while (lines < crypt) {
         kill(game->user.pid_user2, SIGUSR1);
         lines++;
         usleep(10000);
     }
-    kill(game->user.pid_user2, SIGUSR2); // separation
+    kill(game->user.pid_user2, SIGUSR2);
     usleep(10000);
-    while (colms < crypt_sec) { // vertical
+    while (colms < crypt_sec) {
         kill(game->user.pid_user2, SIGUSR1);
         colms++;
         usleep(10000);
     }
-    kill(game->user.pid_user2, SIGUSR2); // final
+    kill(game->user.pid_user2, SIGUSR2);
     return (0);
 }

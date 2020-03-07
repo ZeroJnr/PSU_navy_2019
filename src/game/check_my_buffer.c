@@ -1,8 +1,8 @@
 /*
 ** EPITECH PROJECT, 2020
-** PSU_navy_2019
+** check_my_buffer.c
 ** File description:
-** check my_buffer -> check the error_handling of buffer
+** check_my_buffer
 */
 
 #include "proto.h"
@@ -11,7 +11,7 @@ int check_my_buffer(char *buffer)
 {
     int lenght = 0;
 
-    if (buffer[0] < 'A' || buffer[0] > 'F')
+    if (buffer[0] < 'A' || buffer[0] > 'H')
         return (84);
     if (buffer[1] < '1' || buffer[1] > '8')
         return (84);
