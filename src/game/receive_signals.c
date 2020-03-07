@@ -14,9 +14,8 @@ void sig_handler_sec(int signal, siginfo_t *sig, void *test)
     static int count = 0;
     static int sec = 0;
 
-    if (signal == 10) {
+    if (signal == 10)
         count ++;
-    }
     else if (signal == 12) {
         sec++;
         global = count;

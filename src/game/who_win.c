@@ -20,8 +20,7 @@ int who_win_user1(game_t *game)
     if (count == 0) {
         my_putstr("I won\n");
         kill(game->user.pid_user2, SIGUSR1);
-    }
-    else
+    } else
         kill(game->user.pid_user2, SIGUSR2);
     return (0);
 }
@@ -39,8 +38,7 @@ int who_win_user2(game_t *game)
     if (count == 0) {
         my_putstr("I won\n");
         kill(game->user.pid_user1, SIGUSR1);
-    }
-    else
+    } else
         kill(game->user.pid_user2, SIGUSR2);
     return (0);
 }

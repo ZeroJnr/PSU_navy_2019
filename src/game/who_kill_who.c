@@ -46,8 +46,7 @@ void sig_handler_win(int signal, siginfo_t *sig, void *test)
     if (signal == 12) {
         i = 1;
         global = i;
-    }
-    if (signal == 10) {
+    } else if (signal == 10) {
         i = 2;
         global = i;
     }

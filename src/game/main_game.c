@@ -23,8 +23,7 @@ int main_game(game_t *game)
             game->user.receptor = buffer;
             signal_checking(game, buffer[0], buffer[1]);
             break;
-        }
-        else
+        } else
             my_putstr("wrong position\n");
     }
     return (0);
